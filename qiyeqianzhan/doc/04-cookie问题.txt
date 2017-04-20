@@ -1,0 +1,73 @@
+http://www.jianshu.com/p/b7f41df6202d
+http://www.jianshu.com/p/887af1ab4200
+
+一.登陆post
+1.
+Request URL:http://qiye.qianzhan.com/usercenter/getvipstatusinfo
+Request Method:POST
+Status Code:200 OK
+Remote Address:58.221.49.235:80
+
+2.reponse header:
+Cache-Control:private, s-maxage=0
+Content-Encoding:gzip
+Content-Length:211
+Content-Type:application/json; charset=utf-8
+Date:Thu, 20 Apr 2017 08:23:18 GMT
+Server:nginx
+
+3.request header:
+Accept:*/*
+Accept-Encoding:gzip, deflate
+Accept-Language:zh-CN,zh;q=0.8
+Connection:keep-alive
+Content-Length:0
+Cookie:qznewsite.uid=toiuig450mrlasa5l4m45dfz; ASP.NET_SessionId=p3xviyxbeytnuy3zhcswzglf; Hm_lvt_048cbb2d27bb635e2aeb64403a58e3a3=1492592694,1492592884,1492594667; Hm_lpvt_048cbb2d27bb635e2aeb64403a58e3a3=1492676564; qz.newsite=455BF9B7F710709223ED59F2C526EE851B3FBC96DEF2474B5AE03F72A0341842B16CC08303E5B61BBDCC4AFFAFEEAEF92F6DF7DA5A2017C182EBE88023DB44CC3DE9D35A3BC04932990BD43EAC1528794ABF26E80F6C7F3EA924C112B1C6B0A80E6669E3267F65A8C2906379B1A06B5C4564C094B645CDDD67CB04739333BE4AF4BC3257E49806C3AC586E9B57D71B27DEB33A2613E487E2B1A5F74614479149CF29049D
+Host:qiye.qianzhan.com
+Origin:http://qiye.qianzhan.com
+Referer:http://qiye.qianzhan.com/usercenter/myrights
+User-Agent:Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+X-Requested-With:XMLHttpRequest
+
+二.
+cookies = {'Cookie':'qznewsite.uid=toiuig450mrlasa5l4m45dfz; ASP.NET_SessionId=p3xviyxbeytnuy3zhcswzglf; Hm_lvt_048cbb2d27bb635e2aeb64403a58e3a3=1492592694,1492592884,1492594667; Hm_lpvt_048cbb2d27bb635e2aeb64403a58e3a3=1492676564; qz.newsite=455BF9B7F710709223ED59F2C526EE851B3FBC96DEF2474B5AE03F72A0341842B16CC08303E5B61BBDCC4AFFAFEEAEF92F6DF7DA5A2017C182EBE88023DB44CC3DE9D35A3BC04932990BD43EAC1528794ABF26E80F6C7F3EA924C112B1C6B0A80E6669E3267F65A8C2906379B1A06B5C4564C094B645CDDD67CB04739333BE4AF4BC3257E49806C3AC586E9B57D71B27DEB33A2613E487E2B1A5F74614479149CF29049D
+'}
+cookies={'qznewsite.uid':'toiuig450mrlasa5l4m45dfz',
+ 'ASP.NET_SessionId':'p3xviyxbeytnuy3zhcswzglf',
+ 'Hm_lvt_048cbb2d27bb635e2aeb64403a58e3a3':['1492592694','1492592884','1492594667'],
+ 'Hm_lpvt_048cbb2d27bb635e2aeb64403a58e3a3':['1492676564'],
+ 'qz.newsite':'455BF9B7F710709223ED59F2C526EE851B3FBC96DEF2474B5AE03F72A0341842B16CC08303E5B61BBDCC4AFFAFEEAEF92F6DF7DA5A2017C182EBE88023DB44CC3DE9D35A3BC04932990BD43EAC1528794ABF26E80F6C7F3EA924C112B1C6B0A80E6669E3267F65A8C2906379B1A06B5C4564C094B645CDDD67CB04739333BE4AF4BC3257E49806C3AC586E9B57D71B27DEB33A2613E487E2B1A5F74614479149CF29049D'}
+
+三.
+查看详细内容:
+
+2017-04-20 17:28:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://qiye.qianzhan.com/search/all/%E6%94%AF%E4%BB%98> (referer: None)
+2017-04-20 17:28:13 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://qiye.qianzhan.com/userCenter/UserVarify?ReturnUrl=http://qiye.qianzhan.com/orgcompany/searchitemdtl/5819769ba072eb80e4bbc2f65698707d.html> from <GET http://qiye.qianzhan.com/orgcompany/searchitemdtl/5819769ba072eb80e4bbc2f65698707d.html>
+
+1.网址:
+http://qiye.qianzhan.com/userCenter/UserVarify?ReturnUrl=http://qiye.qianzhan.com/search/all/%E6%94%AF%E4%BB%98?o=0&p=2
+
+2.
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:gzip, deflate, sdch
+Accept-Language:zh-CN,zh;q=0.8
+Connection:keep-alive
+Cookie:qznewsite.uid=toiuig450mrlasa5l4m45dfz; qz.newsite=0AA0F7F64C35F3C59972E8937E3493F1103584B195E21858D7F257FB8C133F897CDBF4B75E005DEE1238A239A31B7E92A61A8B07DEFE43C72C41257FB2C3623719D5DFBAC2219363DE322E40E3CAA6F906EBCCD531CBA751FDEEE1DF660C6BD6F72D00C6F73C6F22AFAFEC5A2FF591608FEE96E40579288F3AAA8B8893CEB86EBD441AAE1A420FDEB7B7DD9F610ACDECB220F9EF43BD942C27FA794F1D0C72622A977126; Hm_lvt_048cbb2d27bb635e2aeb64403a58e3a3=1492592694,1492592884,1492594667,1492681298; Hm_lpvt_048cbb2d27bb635e2aeb64403a58e3a3=1492681336
+Host:qiye.qianzhan.com
+Referer:http://qiye.qianzhan.com/userCenter/UserVarify?ReturnUrl=http://qiye.qianzhan.com/search/all/%e6%94%af%e4%bb%98?o=0&p=2
+Upgrade-Insecure-Requests:1
+User-Agent:Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36
+
+3.
+/html/body/div[4]/article[2]/section[1]/div[1]/section/ul/li[1]/span[2]
+/html/body/article/div/div/h2
+        name=response.xpath(r'/html/head/title').extract()
+
+方法:
+        yhyz = response.xpath(r'///html/body/article/div/div/h2').extract()
+        print(response,gsinfo_shxydm,yhyz)
+        htmlname = response.xpath(r'//html/head/title/@text').extract()
+        print(htmlname)
+结果:
+<200 http://qiye.qianzhan.com/orgcompany/searchitemdtl/0560dae321b0a0b601f180d74b99db65.html> [] []
+[]

@@ -1,0 +1,39 @@
+1.xpath
+ul[@class="list-search"]/li
+ul[@class="list-search"]/li/div[@class="tit"]/a
+/html/body/div[4]/article/div[2]/div[2]/a[7]
+
+2.robots.txt问题:
+Crawled (200) <GET http://qiye.qianzhan.com/robots.txt> (referer: None)
+处理:
+# Obey robots.txt rules
+ROBOTSTXT_OBEY = False
+
+3.下一页问题
+问题:http://qiye.qianzhan.com/search/all/%e6%94%af%e4%bb%98?o=0&p=2
+    下一页链接为空
+处理:
+(1)nextlink = response.xpath(r'//div[@class="page-list"]/a[@class="next"]/@href').extract()
+(2)第二页:
+/html/body/div[4]/article/div[2]/div[2]/a[7]
+第一页:
+/html/body/div[4]/article/div[2]/div[2]/a[7]
+
+4.名称:
+元素:
+<a href="/orgcompany/searchitemdtl/bbe9789e247d64dc9dc42465b4c14437.html" target="_blank">
+广东商联<em class="keywrod">支付</em>网络技术有限公司
+                                </a>
+选择:
+/html/body/div[4]/article/div[2]/ul/li[9]/div[1]/a/text()[1]
+/html/body/div[4]/article/div[2]/ul/li[9]/div[1]/a/em
+/html/body/div[4]/article/div[2]/ul/li[9]/div[1]/a/text()[2]
+
+解决:
+compony_name_1 = eachcompany.xpath(r'div[@class="tit"]/a/text()[1]').extract()
+compony_name_2=eachcompany.xpath(r'div[@class="tit"]/a/em/text()').extract()
+compony_name_3=eachcompany.xpath(r'div[@class="tit"]/a/text()[2]').extract()
+
+5.注册原因:
+http://qiye.qianzhan.com/usercenter/register
+http://qiye.qianzhan.com/usercenter/register
