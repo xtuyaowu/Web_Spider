@@ -65,7 +65,7 @@ class QiyeoneSpider(CrawlSpider):
 
         if nextlink:
             Nextlink = nextlink[0].strip()
-            request = Request(self.parent_url + Nextlink, callback=self.parse)
+            request = Request(self.parent_url + Nextlink, callback=self.parse,cookies=self.cookies)
             yield request
         else:
             print('下一页链接为空')
