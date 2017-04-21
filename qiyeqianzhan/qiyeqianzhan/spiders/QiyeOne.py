@@ -22,6 +22,13 @@ class QiyeoneSpider(CrawlSpider):
  'Hm_lvt_048cbb2d27bb635e2aeb64403a58e3a3':['1492592694','1492592884','1492594667','1492681298'],
  'Hm_lpvt_048cbb2d27bb635e2aeb64403a58e3a3':'1492681336'}
 
+    cookies3={'qznewsite.uid':'toiuig450mrlasa5l4m45dfz',
+'qz.newsite':'0AA0F7F64C35F3C59972E8937E3493F1103584B195E21858D7F257FB8C133F897CDBF4B75E005DEE1238A239A31B7E92A61A8B07DEFE43C72C41257FB2C3623719D5DFBAC2219363DE322E40E3CAA6F906EBCCD531CBA751FDEEE1DF660C6BD6F72D00C6F73C6F22AFAFEC5A2FF591608FEE96E40579288F3AAA8B8893CEB86EBD441AAE1A420FDEB7B7DD9F610ACDECB220F9EF43BD942C27FA794F1D0C72622A977126',
+'Hm_lvt_048cbb2d27bb635e2aeb64403a58e3a3':['1492741808','1492741873','1492741883','1492742610'],
+'Hm_lpvt_048cbb2d27bb635e2aeb64403a58e3a3':'1492742633'}
+
+
+
     def start_requests(self):
         return [Request("http://qiye.qianzhan.com/search/all/支付", cookies=self.cookies, callback=self.parse)]
 
@@ -51,13 +58,12 @@ class QiyeoneSpider(CrawlSpider):
 
             if compony_url:
                 companyitem['compony_url'] = self.parent_url + compony_url[0].strip()
-
             companyitem["id"]=str(self.i)
             self.i+=1
-            time.sleep(1)
             # yield companyitem
             #测试内容网址
             print(self.parent_url + compony_url[0].strip())
+            time.sleep(2)
             yield Request(self.parent_url + compony_url[0].strip(), meta={"item": companyitem},
                           callback=self.parse_article_content,cookies=self.cookies2)
 
@@ -68,6 +74,7 @@ class QiyeoneSpider(CrawlSpider):
         if nextlink:
             Nextlink = nextlink[0].strip()
             request = Request(self.parent_url + Nextlink, callback=self.parse,cookies=self.cookies)
+            time.sleep(2)
             yield request
         else:
             print('下一页链接为空')
@@ -131,7 +138,7 @@ class QiyeoneSpider(CrawlSpider):
 
         gsinfo_jyxq = response.xpath(r'//ul[@class="art-basic"]/li[11]/span[2]/text()').extract()
         if gsinfo_jyxq:
-            companyitem['gsinfo_jyxq'] = gsinfo_jyzt[0].strip()
+            companyitem['gsinfo_jyxq'] = gsinfo_jyxq[0].strip()
         else:
             companyitem['gsinfo_jyxq']='NaN'
 
@@ -155,25 +162,25 @@ class QiyeoneSpider(CrawlSpider):
 
         gsinfo_fzrq = response.xpath(r'//ul[@class="art-basic"]/li[15]/span[2]/text()').extract()
         if gsinfo_fzrq:
-            companyitem['gsinfo_fzrq'] = gsinfo_ztlx[0].strip()
+            companyitem['gsinfo_fzrq'] = gsinfo_fzrq[0].strip()
         else:
             companyitem['gsinfo_fzrq']='NaN'
 
-        gsinfo_qzbq = response.xpath(r'//ul[@class="art-basic"]/li[16]/span[2]/text()').extract()
+        gsinfo_qzbq = response.xpath(r'//ul[@class="art-basic"]/li[16]/span[2]/a/text()').extract()
         if gsinfo_qzbq:
-            companyitem['gsinfo_qzbq'] = gsinfo_qzbq[0].strip()
+            companyitem['gsinfo_qzbq'] = ":".join(gsinfo_qzbq)
         else:
             companyitem['gsinfo_qzbq']='NaN'
 
-        gsinfo_zhbq = response.xpath(r'//ul[@class="art-basic"]/li[17]/span[2]/text()').extract()
+        gsinfo_zhbq = response.xpath(r'//ul[@class="art-basic"]/li[17]/span[2]/a/text()').extract()
         if gsinfo_zhbq:
-            companyitem['gsinfo_zhbq'] = gsinfo_zhbq[0].strip()
+            companyitem['gsinfo_zhbq'] = ":".join(gsinfo_zhbq)
         else:
             companyitem['gsinfo_zhbq']='NaN'
 
-        gsinfo_sshy = response.xpath(r'//ul[@class="art-basic"]/li[18]/span[2]/text()').extract()
+        gsinfo_sshy = response.xpath(r'//ul[@class="art-basic"]/li[18]/span[2]/a/text()').extract()
         if gsinfo_sshy:
-            companyitem['gsinfo_sshy'] = gsinfo_sshy[0].strip()
+            companyitem['gsinfo_sshy'] = ":".join(gsinfo_sshy)
         else:
             companyitem['gsinfo_sshy']='NaN'
 
@@ -193,5 +200,4 @@ class QiyeoneSpider(CrawlSpider):
         #爬取测试
         htmlname = response.xpath(r'//html/head/title').extract()
         print(response,htmlname)
-        time.sleep(1)
         return companyitem
