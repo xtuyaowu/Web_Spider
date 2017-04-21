@@ -54,14 +54,16 @@ class QiyeoneSpider(CrawlSpider):
 
             companyitem["id"]=str(self.i)
             self.i+=1
-            # time.sleep(5)
+            time.sleep(1)
+            # yield companyitem
+            #测试内容网址
+            print(self.parent_url + compony_url[0].strip())
             yield Request(self.parent_url + compony_url[0].strip(), meta={"item": companyitem},
                           callback=self.parse_article_content,cookies=self.cookies2)
-            # yield companyitem
+
 
         #nextlink = response.xpath(r'//div[@class="page-list"]/a[contains(text(),"下一页")]/@href').extract()
         nextlink = response.xpath(r'//div[@class="page-list"]/a[@class="next"]/@href').extract()
-        # nextlink=response.xpath(r'/html/body/div[4]/article/div[2]/div[2]/a[7]/@href').extract()
 
         if nextlink:
             Nextlink = nextlink[0].strip()
@@ -72,38 +74,124 @@ class QiyeoneSpider(CrawlSpider):
 
     def parse_article_content(self, response):
         companyitem = response.meta['item']
-        gsinfo_shxydm = response.xpath(r'//html/body/div[4]/article[2]/section[1]/div[1]/section/ul/li[1]/span[2]/text()').extract()
+
+        gsinfo_shxydm = response.xpath(r'//ul[@class="art-basic"]/li[1]/span[2]/text()').extract()
         if gsinfo_shxydm:
             companyitem['gsinfo_shxydm'] = gsinfo_shxydm[0].strip()
         else:
             companyitem['gsinfo_shxydm']='NaN'
 
-        gsinfo_zch = response.xpath(r'//html/body/div[4]/article[2]/section[1]/div[1]/section/ul/li[2]/span[2]/text()').extract()
+        gsinfo_zch = response.xpath(r'//ul[@class="art-basic"]/li[2]/span[2]/text()').extract()
         if gsinfo_zch:
             companyitem['gsinfo_zch'] = gsinfo_zch[0].strip()
         else:
             companyitem['gsinfo_zch']='NaN'
 
-        gsinfo_jgdm = response.xpath(r'//html/body/div[4]/article[2]/section[1]/div[1]/section/ul/li[4]/span[2]/text()').extract()
+        gsinfo_jgdm = response.xpath(r'//ul[@class="art-basic"]/li[4]/span[2]/text()').extract()
         if gsinfo_jgdm:
             companyitem['gsinfo_jgdm'] = gsinfo_jgdm[0].strip()
         else:
             companyitem['gsinfo_jgdm']='NaN'
 
-        gsinfo_jyzt = response.xpath(r'//html/body/div[4]/article[2]/section[1]/div[1]/section/ul/li[5]/span[2]/text()').extract()
+        gsinfo_jyzt = response.xpath(r'//ul[@class="art-basic"]/li[5]/span[2]/text()').extract()
         if gsinfo_jyzt:
             companyitem['gsinfo_jyzt'] = gsinfo_jyzt[0].strip()
         else:
             companyitem['gsinfo_jyzt']='NaN'
 
-        gsinfo_ztlx = response.xpath(r'//html/body/div[4]/article[2]/section[1]/div[1]/section/ul/li[6]/span[2]/text()').extract()
+        gsinfo_ztlx = response.xpath(r'//ul[@class="art-basic"]/li[6]/span[2]/text()').extract()
         if gsinfo_ztlx:
             companyitem['gsinfo_ztlx'] = gsinfo_ztlx[0].strip()
         else:
             companyitem['gsinfo_ztlx']='NaN'
-        #用户验证测试
-        yhyz = response.xpath(r'///html/body/article/div/div/h2').extract()
-        print(response,gsinfo_shxydm,yhyz)
-        htmlname = response.xpath(r'//html/head/title/@text').extract()
-        print(htmlname)
+
+        gsinfo_jglx = response.xpath(r'//ul[@class="art-basic"]/li[7]/span[2]/text()').extract()
+        if gsinfo_jglx:
+            companyitem['gsinfo_jglx'] = gsinfo_jglx[0].strip()
+        else:
+            companyitem['gsinfo_jglx'] = 'NaN'
+
+        gsinfo_djrq = response.xpath(r'//ul[@class="art-basic"]/li[8]/span[2]/text()').extract()
+        if gsinfo_djrq:
+            companyitem['gsinfo_djrq'] = gsinfo_djrq[0].strip()
+        else:
+            companyitem['gsinfo_djrq']='NaN'
+
+        gsinfo_frdb = response.xpath(r'//ul[@class="art-basic"]/li[9]/span[2]/text()').extract()
+        if gsinfo_frdb:
+            companyitem['gsinfo_frdb'] = gsinfo_frdb[0].strip()
+        else:
+            companyitem['gsinfo_frdb']='NaN'
+
+        gsinfo_zczb = response.xpath(r'//ul[@class="art-basic"]/li[10]/span[2]/text()').extract()
+        if gsinfo_zczb:
+            companyitem['gsinfo_zczb'] = gsinfo_zczb[0].strip()
+        else:
+            companyitem['gsinfo_zczb']='NaN'
+
+        gsinfo_jyxq = response.xpath(r'//ul[@class="art-basic"]/li[11]/span[2]/text()').extract()
+        if gsinfo_jyxq:
+            companyitem['gsinfo_jyxq'] = gsinfo_jyzt[0].strip()
+        else:
+            companyitem['gsinfo_jyxq']='NaN'
+
+        gsinfo_djjg = response.xpath(r'//ul[@class="art-basic"]/li[12]/span[2]/text()').extract()
+        if gsinfo_djjg:
+            companyitem['gsinfo_djjg'] = gsinfo_djjg[0].strip()
+        else:
+            companyitem['gsinfo_djjg']='NaN'
+
+        gsinfo_ssdq = response.xpath(r'//ul[@class="art-basic"]/li[13]/span[2]/text()').extract()
+        if gsinfo_ssdq:
+            companyitem['gsinfo_ssdq'] = gsinfo_ssdq[0].strip()
+        else:
+            companyitem['gsinfo_ssdq']='NaN'
+
+        gsinfo_zsyxq = response.xpath(r'//ul[@class="art-basic"]/li[14]/span[2]/text()').extract()
+        if gsinfo_zsyxq:
+            companyitem['gsinfo_zsyxq'] = gsinfo_zsyxq[0].strip()
+        else:
+            companyitem['gsinfo_zsyxq']='NaN'
+
+        gsinfo_fzrq = response.xpath(r'//ul[@class="art-basic"]/li[15]/span[2]/text()').extract()
+        if gsinfo_fzrq:
+            companyitem['gsinfo_fzrq'] = gsinfo_ztlx[0].strip()
+        else:
+            companyitem['gsinfo_fzrq']='NaN'
+
+        gsinfo_qzbq = response.xpath(r'//ul[@class="art-basic"]/li[16]/span[2]/text()').extract()
+        if gsinfo_qzbq:
+            companyitem['gsinfo_qzbq'] = gsinfo_qzbq[0].strip()
+        else:
+            companyitem['gsinfo_qzbq']='NaN'
+
+        gsinfo_zhbq = response.xpath(r'//ul[@class="art-basic"]/li[17]/span[2]/text()').extract()
+        if gsinfo_zhbq:
+            companyitem['gsinfo_zhbq'] = gsinfo_zhbq[0].strip()
+        else:
+            companyitem['gsinfo_zhbq']='NaN'
+
+        gsinfo_sshy = response.xpath(r'//ul[@class="art-basic"]/li[18]/span[2]/text()').extract()
+        if gsinfo_sshy:
+            companyitem['gsinfo_sshy'] = gsinfo_sshy[0].strip()
+        else:
+            companyitem['gsinfo_sshy']='NaN'
+
+
+        compony_adress = response.xpath(r'//ul[@class="art-basic"]/li[19]/span[2]/text()').extract()
+        if compony_adress:
+            companyitem['compony_adress'] = compony_adress[0].strip()
+        else:
+            companyitem['compony_adress']='NaN'
+
+        gsinfo_jyfw = response.xpath(r'//ul[@class="art-basic"]/li[20]/span[2]/text()').extract()
+        if gsinfo_jyfw:
+            companyitem['gsinfo_jyfw'] = gsinfo_jyfw[0].strip()
+        else:
+            companyitem['gsinfo_jyfw']='NaN'
+
+        #爬取测试
+        htmlname = response.xpath(r'//html/head/title').extract()
+        print(response,htmlname)
+        time.sleep(1)
         return companyitem

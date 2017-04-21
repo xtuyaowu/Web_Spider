@@ -37,3 +37,12 @@ compony_name_3=eachcompany.xpath(r'div[@class="tit"]/a/text()[2]').extract()
 5.注册原因:
 http://qiye.qianzhan.com/usercenter/register
 http://qiye.qianzhan.com/usercenter/register
+
+6.公司网址:
+/html/body/div[4]/article[1]/div/div/div[1]/div/p[1]/a
+
+7.内容xpath
+html/body/div[4]/article[2]/section[1]/div[1]/section/ul/li[6]/span[2]/text()
+改为:
+//ul[@class="art-basic"]/li[6]/span[2]/text()
+
